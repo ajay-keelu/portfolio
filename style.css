@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,500;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+/*
+    font-family: 'Ubuntu', sans-serif;
+*/
+body{
+    scroll-behavior: smooth;
+    background-color: #000 !important;
+    min-height: 100vh;
+    position: relative;
+}
+*,*::after,*::before{
+    box-sizing: border-box !important;
+    font-family: 'Poppins', sans-serif;
+}
+#header{
+    z-index: 100;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.582);
+    height: 100px;
+    width: 100vw;
+    padding: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* backdrop-filter: blur(20px); */
+}
+.logo{
+    top:0px;
+    left:10px;
+    z-index: 1;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin:10px 0!important;
+    position: absolute;
+}
+#logo-id{
+    font-size: 35px;
+    font-family: 'Silkscreen', cursive;
+}
+.logo h1{
+    position: relative;
+    width: 250px;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    margin: 2px 10px !important;
+    justify-content: center;
+    color:rgb(60, 241, 217);
+    transition:all .5s;
+    text-transform: uppercase;
+    line-height: 80px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.logo h1::before{
+    content: '';
+    position: absolute;
+    background-image:conic-gradient(
+        rgba(0, 179, 250, 01),
+        rgba(255, 0, 34, 01),
+        rgba(26, 196, 226, 01),
+        rgba(177, 10, 135, 01),
+        rgba(0, 179, 250, 01),
+        rgba(177, 10, 135, 01),
+        rgba(255, 0, 34, 01),
+        rgba(26, 196, 226, 01)
+    );
+    height: 500%;
+    width: 300%;
+    animation: anim 3s linear infinite;
+}
+
+.logo h1:hover::before{
+    
+    animation: anim .8s linear infinite;
+}
+section#home{
+    margin-top: 110px !important;
+}
+.logo h1 span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: absolute;
+    inset: 2px;
+    background: black;
+    transition: all .5s ease-in-out;
+}
+.logo h1:hover span{
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 1px 12px rgba(247, 236, 236, 0.699);
+}
+@keyframes anim{
+    0%{
+        transform: rotate(0deg) ;
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#navbar{
+    position: absolute;
+    width: calc(100% - 320px);
+    height: 80px;
+    right:32px;
+    top:10px;
+}
+#navbar .list{
+    position: absolute;
+    inset:3px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+}
+#navbar .list::before{
+    content: '';
+    position: absolute;
+    background-image:conic-gradient(
+        rgba(0, 179, 250, 01),
+        rgba(255, 0, 34, 01),
+        rgba(26, 196, 226, 01),
+        rgba(177, 10, 135, 01),
+        rgba(0, 179, 250, 01),
+        rgba(177, 10, 135, 01),
+        rgba(255, 0, 34, 01),
+        rgba(26, 196, 226, 01)
+    );
+    height: 1500%;
+    width: 200%;
+    animation: anim 3s linear infinite;
+}
+#navbar .list .ul-list{
+    inset:1px;
+    position: absolute;
+    background-color: #000;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.ul-list ul{
+    padding: 10px 20px;
+    display: flex;
+    position: relative;
+    inset:1px;
+    width: 100%;
+    align-items: center;
+    list-style: none;
+    justify-content: space-around;
+}
+.ul-list ul li{
+    position: relative;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+
+}
+.ul-list ul li a{
+    color: #fff;
+    position: relative;
+    width: 100%;height: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: 'Silkscreen', cursive;
+    letter-spacing: 1px;
+    /* overflow: hidden; */
+    display: flex;
+    align-items: center;
+}
+.ul-list ul li.active a{
+    color: rgb(248, 200, 200) !important;
+    /* box-shadow: ; */
+}
+.ul-list ul li a::before{
+    content: '';
+    position: absolute;
+    width:100%;
+    height: 3px;
+    top: 23px;
+    border-radius: 3px;
+    background: #fff;
+    transform-origin: right;
+    transform: scaleX(0); 
+    transition: transform .3s;
+}
+.ul-list ul li a:hover::before{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.navbar-btn{
+    position: absolute;
+    z-index: 10;
+    right:30px;
+    top:30px;
+    padding: 0 !important;
+    height: 40px;
+    width: 50px;
+    display: none !important;
+    align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width : 768px) {
+    #navbar{
+        display: none;
+        width: 90% !important;
+        top:100px !important;
+        left: 0px !important;
+    }
+   .navbar-btn{
+        display: flex !important; 
+        flex-direction: column !important;
+    }
+    .nav-resp{
+        flex-direction: column !important;
+    }
+}
+@media screen and (min-width : 769px) {
+    #header{
+        height: 100px !important;
+    }
+    #navbar{
+        display: block !important;
+    }
+}
+@media screen and (max-width:375px) {
+    .navbar-btn{
+        right:0px !important;
+    }
+    #navbar a{
+        font-size: 10px !important;
+    }
+}
+@media screen and (max-width:810px) and (min-width:768px) {
+    
+    .ul-list ul li a{
+        font-size: 14px !important;
+    }
+}
+.navbar-btn ion-icon{
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+}
+/*  home */
+.homeContent{
+    min-height: 100vh;
+    width: 100%;
+}
+.homeContent .left{
+    height: 300px;
+    background: red;
+}
+.homeContent .right{
+    height: 300px;
+    background: yellow;
+}
