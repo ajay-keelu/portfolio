@@ -10,4 +10,6 @@ navbarBtn.addEventListener('click',()=>{
         header.style.height = '200px'
     }
 })
-
+// setInterval(()=>{
+//     window.location.reload()
+// },1000)
