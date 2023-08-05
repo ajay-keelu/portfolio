@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,500;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap'); */
 html{
     scroll-behavior: smooth;
 }
@@ -45,7 +45,8 @@ body{
 }
 #logo-id{
     font-size: 35px;
-    font-family: 'Silkscreen', cursive;
+    font-family: Copperplate Gothic Bold;
+    padding: 5px 10px;
 }
 .logo h1{
     position: relative;
@@ -177,7 +178,6 @@ section#home{
     margin: 5px;
     display: flex;
     align-items: center;
-
 }
 .ul-list ul li a{
     color: #fff;
@@ -185,8 +185,10 @@ section#home{
     width: 100%;height: 100%;
     text-transform: uppercase;
     text-decoration: none;
+    font-size: 20px;
     font-weight: bolder;
-    font-family: 'Silkscreen', cursive;
+    /* line-height: 60px; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, cursive;
     letter-spacing: 1px;
     /* overflow: hidden; */
     display: flex;
@@ -201,7 +203,7 @@ section#home{
     position: absolute;
     width:100%;
     height: 3px;
-    top: 23px;
+    bottom: -5px;
     border-radius: 3px;
     background: #fff;
     transform-origin: right;
@@ -224,7 +226,7 @@ section#home{
     align-items: center;
     justify-content: center;
 }
-@media screen and (max-width:1000px) {
+/* @media screen and (max-width:1000px) {
     .homeContent .right{
         display: none !important;
     }
@@ -270,13 +272,20 @@ section#home{
     .ul-list ul li a{
         font-size: 14px !important;
     }
-}
+} */
 .navbar-btn ion-icon{
     margin: 0;
     padding: 0;
     font-size: 40px;
 }
-/*  home */
+/* 
+
+--------------------------------
+
+            home 
+
+--------------------------------            
+*/
 .homeContent,
 .aboutContent,
 .educationContent,
@@ -357,7 +366,6 @@ section#home{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: #fff; */
     overflow: hidden;
     text-decoration: none;
     transition: all .5s ease-in-out;
@@ -492,3 +500,187 @@ section#home{
     top:50%;
     transform: translate(-50%,-50%);
   }
+  /* 
+  -------------------------------------
+    
+                Projects
+                
+  -------------------------------------  
+  */
+
+.aboutContent{
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+.aboutContent .mainProjects{
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    gap:60px;
+}
+.aboutContent .miniProjects{
+    min-height: 50vh;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap:30px;
+    position: relative;
+}
+.aboutContent .mainProjects .projectDiv{
+    min-height:300px ;
+    width: 450px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 45px 1px rgba(211, 211, 211, 0.315);
+    border: 1px solid rgb(95, 92, 92);
+}
+.aboutContent .mainProjects .projectDiv .projectHeading{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+.aboutContent .mainProjects .projectDiv .projectDescription{
+    font-size: 15px;
+    color: rgb(182, 181, 181);
+    text-align:justify;
+    margin: 10px 30px;
+    line-height: 25px;
+}
+.aboutContent .mainProjects .projectDiv .projectTechnologies{
+    margin-top: 10px;
+}
+.aboutContent .mainProjects .projectDiv .projectTechnologies .techHead{
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.aboutContent .mainProjects .projectDiv .projectTechnologies .techHead::after{
+    content: ':';
+    text-decoration: none;
+    margin-left: 20px;
+    color: lightgray;
+}
+.aboutContent .mainProjects .projectDiv .projectTechnologies .technologies{
+    color:rgb(177, 175, 175);
+    margin-left: 30px;
+    text-transform: uppercase;
+}
+.aboutContent .mainProjects .projectDiv .projectLink{
+    /* justify-content: center; */
+    text-align: center;
+    padding: 10px;
+    /* position: absolute; */
+}
+.aboutContent .mainProjects .projectDiv .projectLink span{
+    margin-top: 10px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-left: 20px;
+    color:red;
+}
+.aboutContent .mainProjects .projectDiv .projectLink a{
+    color:cyan;
+    text-decoration: none;
+}
+.aboutContent .mainProjects .projectDiv .projectLink a:hover{
+    text-decoration: underline;
+}
+.aboutContent .projectHead{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 24px;
+    width: 100%;
+    position: relative;
+    padding-left: 13%;
+}
+.aboutContent .projectHead::after{
+    height: 3px;
+    width: 200px;
+    content: '';
+    position: absolute;
+    left: 350px;
+    top:15px;
+    border-radius: 3px;
+    background: rgba(202, 200, 200, 0.795);
+}
+.aboutContent .projectHead::before{
+    content: '';
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    background: rgba(211, 210, 210, 0.712);
+    left:150px;
+    border-radius: 4px;
+}
+.aboutContent .projectHead2{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 24px;
+    width: 100%;
+    position: relative;
+    padding-left: 13%;
+}
+.aboutContent .projectHead2::after{
+    height: 3px;
+    width: 200px;
+    content: '';
+    position: absolute;
+    left: 380px;
+    top:15px;
+    border-radius: 3px;
+    background: rgba(202, 200, 200, 0.795);
+}
+.aboutContent .projectHead2::before{
+    content: '';
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    background: rgba(211, 210, 210, 0.712);
+    left:150px;
+    border-radius: 4px;
+}
+.aboutContent .miniProjects .projectDiv{
+    min-height:300px ;
+    width: 350px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 45px 1px rgba(211, 211, 211, 0.315);
+    border: 1px solid rgb(95, 92, 92);
+}
+.aboutContent .miniProjects .projectDiv .projectHeading{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+.aboutContent .miniProjects .projectDiv .projectDescription{
+    color: rgba(185, 183, 183, 0.897);
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.aboutContent .miniProjects .projectDiv .projectTechnologies{
+    text-transform: uppercase;
+    padding: 5px 5px 5px 20px;
+}
+.aboutContent .miniProjects .projectDiv .projectLink{
+    color:crimson
+}
+.aboutContent .miniProjects .projectDiv .projectLink a{
+    text-decoration: none;
+    color:greenyellow
+}
+.aboutContent .miniProjects .projectDiv .projectLink a:hover{
+    text-decoration: underline;
+    color: #187099;
+}
