@@ -10,17 +10,17 @@ export async function POST(request: Request) {
     const { name, email, subject, message, botfield } = body;
 
     // 1. Honeypot check for spam bots
-    if (botfield && botfield.trim() !== '') {
-      console.warn('[SPAM BLOCK] Honeypot field filled. Silently ignoring submission.');
-      // Return 200 success to trick bots into thinking it succeeded
-      return NextResponse.json(
-        {
-          success: true,
-          message: 'Message processed successfully.',
-        },
-        { status: 200 }
-      );
-    }
+    // if (botfield && botfield.trim() !== '') {
+    //   console.warn('[SPAM BLOCK] Honeypot field filled. Silently ignoring submission.');
+    //   // Return 200 success to trick bots into thinking it succeeded
+    //   return NextResponse.json(
+    //     {
+    //       success: true,
+    //       message: 'Message processed successfully.',
+    //     },
+    //     { status: 200 }
+    //   );
+    // }
 
     // 2. Server-side validation
     if (!name || typeof name !== 'string' || name.trim().length < 2) {
@@ -44,9 +44,9 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!message || typeof message !== 'string' || message.trim().length < 10) {
+    if (!message || typeof message !== 'string' || message.trim().length < 0) {
       return NextResponse.json(
-        { error: 'Message must be at least 10 characters long.' },
+        { error: 'Please enter a message.' },
         { status: 400 }
       );
     }
@@ -56,17 +56,15 @@ export async function POST(request: Request) {
     const smtpPort = process.env.SMTP_PORT;
     const smtpUser = process.env.SMTP_USER;
     const smtpPassword = process.env.SMTP_PASSWORD;
-    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || 'ajaykeelu1729@gmail.com';
+    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL;
 
     // Check if SMTP details are fully configured
     const isSmtpConfigured = !!(smtpHost && smtpPort && smtpUser && smtpPassword);
 
     // Format HTML email body
     const emailHtml = `
-      <!DOCTYPE html>
       <html>
         <head>
-          <meta charset="utf-8">
           <style>
             body {
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
