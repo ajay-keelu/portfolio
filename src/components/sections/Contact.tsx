@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Mail,
@@ -55,25 +56,44 @@ export default function Contact() {
     setErrorMessage(null);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      const result = await response.json();
+      const isEmailjsConfigured = !!(serviceId && templateId && publicKey);
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to send message. Please try again.');
-      }
+      if (!isEmailjsConfigured) {
+        // Fallback to preview mode if EmailJS keys are not configured in local environment
+        console.log('─────────────────────────────────────────────────────────────');
+        console.log('📧 CONTACT FORM SUBMISSION (EMAILJS NOT CONFIGURED IN .ENV.LOCAL)');
+        console.log(`From: ${data.name} <${data.email}>`);
+        console.log(`Subject: ${data.subject}`);
+        console.log(`Message: ${data.message}`);
+        console.log('─────────────────────────────────────────────────────────────');
 
-      setIsSubmitted(true);
-      if (result.mode === 'preview') {
+        setIsSubmitted(true);
         setIsPreviewMode(true);
+        reset();
+      } else {
+        // Send email client-side via @emailjs/browser
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            name: data.name,
+            email: data.email,
+            subject: data.subject,
+            message: data.message,
+            DateAndTime: new Date().toLocaleString(),
+          },
+          {
+            publicKey: publicKey,
+          }
+        );
+
+        setIsSubmitted(true);
+        reset();
       }
-      reset();
 
       // Auto-hide success message after 10 seconds
       setTimeout(() => {
@@ -81,7 +101,7 @@ export default function Contact() {
         setIsPreviewMode(false);
       }, 10000);
     } catch (err: any) {
-      setErrorMessage(err.message || 'An unexpected error occurred. Please try again.');
+      setErrorMessage(err.text || err.message || 'An unexpected error occurred. Please try again.');
       // Auto-hide error message after 8 seconds
       setTimeout(() => setErrorMessage(null), 8000);
     } finally {
@@ -251,7 +271,7 @@ export default function Contact() {
                       </p>
                       <p className={cn("text-xs mt-0.5", isPreviewMode ? "text-amber-400/80" : "text-emerald-400/80")}>
                         {isPreviewMode
-                          ? 'To receive actual emails, configure your SMTP password in the .env.local file. Check your terminal to view the logged message!'
+                          ? 'To receive actual emails, configure your EmailJS credentials in the .env.local file. Check your terminal to view the logged message!'
                           : "Thank you for reaching out. I'll get back to you shortly."}
                       </p>
                     </div>
