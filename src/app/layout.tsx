@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ajay Keelu | Software Engineer & .NET Developer",
+  title: "Ajay Keelu | Software Developer",
   description:
     "Portfolio of Ajay Keelu — Results-driven .NET Developer with 2+ years of experience building scalable enterprise applications with C#, ASP.NET Core, Azure, and React. Explore my projects, skills, and professional journey.",
   keywords: [

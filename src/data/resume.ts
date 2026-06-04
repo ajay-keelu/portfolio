@@ -83,7 +83,7 @@ export interface CodingStats {
 
 export const personalInfo: PersonalInfo = {
   name: 'Ajay Keelu',
-  title: 'Software Engineer & .NET Developer',
+  title: 'Software Developer',
   tagline: 'Building Scalable Enterprise Solutions',
   email: 'ajaykeelu1729@gmail.com',
   github: 'https://github.com/ajay-keelu',
