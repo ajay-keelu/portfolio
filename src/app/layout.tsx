@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Ajay Keelu | Software Engineer & .NET Developer",
+    title: "Ajay Keelu | Software Developer",
     description:
       "Results-driven .NET Developer building scalable enterprise applications with modern technologies.",
     siteName: "Ajay Keelu Portfolio",
