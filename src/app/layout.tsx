@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/logo-ak.png",
-    apple: "/logo-ak.png",
+    icon: "/logo-ak-alt.png",
+    apple: "/logo-ak-alt.png",
   },
 };
 
